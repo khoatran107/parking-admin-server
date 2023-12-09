@@ -255,7 +255,7 @@ app.post("/add_time", (req, res) => {
 
         console.log(result);
         const timeInDate = new Date(
-          result[0].time_in.getTime() + 7 * 60 * 60 * 1000
+          result[0].time_in.getTime()
         );
         getPrice(
           location_id,
