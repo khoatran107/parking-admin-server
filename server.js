@@ -61,10 +61,9 @@ app.get("/", verifyUser, (req, res) => {
     location_id: req.location_id,
   });
 });
-
-app.get("/logout", (req, res) => {
-  res.clearCookie("token");
-  return res.json({ Status: "Success" });
+app.get('/logout', (req, res) => {
+    res.clearCookie('token', { secure: true, sameSite: 'None' });
+    return res.json({Status: "Success"});
 });
 
 app.post("/register", (req, res) => {
