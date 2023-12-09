@@ -18,6 +18,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(cookieParser());
 console.log(process.env.DATABASE_PARKING_HOST);
 const db = mySQL.createConnection({
