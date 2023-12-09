@@ -53,6 +53,7 @@ const verifyUser = (req, res, next) => {
 };
 
 app.get("/", verifyUser, (req, res) => {
+  console.log(req.location_id, "has been authenticated");
   return res.json({
     Status: "Success",
     name: req.name,
@@ -124,7 +125,7 @@ app.post("/login", (req, res) => {
           "fwt-secret-key",
           { expiresIn: "1h" }
         );
-        res.cookie("token", token);
+        res.cookie('token', token, { secure: true, sameSite: 'None' })
         return res.json({ Status: "Success" });
       }
     );
